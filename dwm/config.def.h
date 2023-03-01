@@ -55,8 +55,10 @@ static const Layout layouts[] = {
 	{ "",      NULL },    /* no layout function means floating behavior */
 	{ "",      monocle },
 	{ "󱇜",      tcl },
-	{ "",    spiral },
-	{ "󰁃",   dwindle },
+	{ "",      spiral },
+	{ "󰁃",      dwindle },
+	{ "CM",     centeredmaster },
+	{ "CFM",    centeredfloatingmaster },
 };
 
 /* key definitions */
@@ -92,7 +94,6 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
 	{ MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
-	{ MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
@@ -102,6 +103,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_w,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY|ShiftMask,             XK_r,      setlayout,      {.v = &layouts[5]} },
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[6]} },
+	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[7]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
