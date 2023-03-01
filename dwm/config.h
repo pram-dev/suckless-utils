@@ -57,8 +57,8 @@ static const Layout layouts[] = {
 	{ "󱇜",      tcl },
 	{ "",      spiral },
 	{ "󰁃",      dwindle },
-	{ "CM",     centeredmaster },
-	{ "CFM",    centeredfloatingmaster },
+	{ "󱥢",     centeredmaster },
+	{ "󰼀",    centeredfloatingmaster },
 };
 
 /* key definitions */
