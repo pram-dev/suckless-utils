@@ -5,18 +5,18 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const double defaultopacity  = 1.00;
-static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=13.0" };
-static const char dmenufont[]       = "JetBrainsMono Nerd Font:size=13.0";
+static const char *fonts[]          = { "JetBrainsMono Nerd Font:style=Medium:size=12.0" };
+static const char dmenufont[]       = "JetBrainsMono Nerd Font:style=Medium:size=12.0";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#000000"; // fedora blue color #072c61, original #005577
+static const char col_cyan[]        = "#455A64"; // fedora blue color #072c61, original #005577
 static const unsigned int baralpha = 0xff; // originally set to '0xd0'
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
@@ -92,10 +92,10 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
-	{ MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
+	{ MODKEY,                       XK_bracketleft,  setmfact, {.f = -0.05} },
+	{ MODKEY,                       XK_bracketright, setmfact, {.f = +0.05} },
+	{ MODKEY|ShiftMask,             XK_bracketright, setcfact, {.f = +0.25} },
+	{ MODKEY|ShiftMask,             XK_bracketleft,  setcfact, {.f = -0.25} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
