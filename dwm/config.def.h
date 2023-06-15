@@ -1,6 +1,7 @@
 #include "tcl.c"
 #include "movestack.c"
 #include "fibonacci.c"
+#include <X11/XF86keysym.h>
 
 /* See LICENSE file for copyright and license details. */
 
@@ -81,10 +82,14 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "kitty", NULL };
-static const char *lockcmd[]  = { "slock", NULL };
-static const char *filemgrcmd[] = { "thunar", NULL };
+static const char *dmenucmd[]      = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *termcmd[]       = { "kitty", NULL };
+static const char *lockcmd[]       = { "slock", NULL };
+static const char *filemgrcmd[]    = { "thunar", NULL };
+static const char *mutecmd[]       = {"/usr/bin/pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL};
+static const char *mediapausecmd[] = {"/usr/bin/playerctl", "play-pause", NULL};
+static const char *mediaprevcmd[]  = {"/usr/bin/playerctl", "previous", NULL};
+static const char *medianextcmd[]  = {"/usr/bin/playerctl", "next", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -122,6 +127,10 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+  { 0,                    XF86XK_AudioMute,  spawn,          {.v = mutecmd} },
+  { 0,                    XF86XK_AudioPlay,  spawn,          {.v = mediapausecmd } },
+  { 0,                    XF86XK_AudioPrev,  spawn,          {.v = mediaprevcmd} },
+  { 0,                    XF86XK_AudioNext,  spawn,          {.v = medianextcmd} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
