@@ -18,17 +18,18 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const double defaultopacity  = 1.00;
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:style=SemiBold:size=12.0" };
 static const char dmenufont[]       = "JetBrainsMono Nerd Font:style=SemiBold:size=12.0";
-static const char col_gray1[]       = "#111111";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#ffffff";
+static const char col_dark[]        = "#111111";
+static const char col_darkergray[]  = "#333333";
+static const char col_darkgray[]    = "#888888";
+static const char col_lightgray[]       = "#bbbbbb";
+static const char col_white[]       = "#ffffff";
 static const char col_cyan[]        = "#37474F"; // fedora blue color #072c61, original #005577
 static const unsigned int baralpha = 0xff; // originally set to '0xd0'
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray4, col_gray1, col_gray1 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { col_white, col_dark, col_darkergray },
+	[SchemeSel]  = { col_white, col_cyan, col_cyan },
 };
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
@@ -82,7 +83,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]      = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[]      = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_dark, "-nf", col_lightgray, "-sb", col_cyan, "-sf", col_white, NULL };
 static const char *termcmd[]       = { "kitty", NULL };
 static const char *lockcmd[]       = { "slock", NULL };
 static const char *filemgrcmd[]    = { "thunar", NULL };
