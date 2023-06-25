@@ -7,7 +7,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
-static const unsigned int gappx     = 6;        /* gaps between windows */
+static const unsigned int gappx     = 1;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
@@ -22,7 +22,7 @@ static const char dmenufont[]       = "JetBrainsMono Nerd Font:style=SemiBold:si
 static const char col_dark[]        = "#111111";
 static const char col_darkergray[]  = "#333333";
 static const char col_darkgray[]    = "#888888";
-static const char col_lightgray[]       = "#bbbbbb";
+static const char col_lightgray[]   = "#bbbbbb";
 static const char col_white[]       = "#ffffff";
 static const char col_cyan[]        = "#2980B9"; // fedora blue color #072c61, original #005577
 static const unsigned int baralpha = 0xff; // originally set to '0xd0'
