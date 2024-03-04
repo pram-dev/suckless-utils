@@ -24,13 +24,15 @@ static const char col_darkergray[]  = "#333333";
 static const char col_darkgray[]    = "#E0E0E0";
 static const char col_lightgray[]   = "#bbbbbb";
 static const char col_white[]       = "#ffffff";
-static const char col_cyan[]        = "#0D47A1"; // fedora blue color #072c61, original #005577
-static const unsigned int baralpha = 0xff; // originally set to '0xd0'
+static const char col_cyan[]        = "#005577";
+static const char col_fedora[]      = "#072c61";
+static const char col_purple[]      = "#4d3573";
+static const unsigned int baralpha    = 0xff; // originally set to '0xd0'
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_white, col_dark, col_darkergray },
-	[SchemeSel]  = { col_white, col_cyan, col_cyan },
+	[SchemeSel]  = { col_white, col_purple, col_purple },
 };
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
@@ -84,7 +86,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]      = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_dark, "-nf", col_lightgray, "-sb", col_cyan, "-sf", col_white, NULL };
+static const char *dmenucmd[]      = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_dark, "-nf", col_lightgray, "-sb", col_purple, "-sf", col_white, NULL };
 static const char *termcmd[]       = { "kitty", NULL };
 static const char *sttermcmd[]     = { "st", NULL};
 static const char *lockcmd[]       = { "slock", NULL };
@@ -116,7 +118,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_bracketright, setmfact, {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_bracketright, setcfact, {.f = +0.25} },
 	{ MODKEY|ShiftMask,             XK_bracketleft,  setcfact, {.f = -0.25} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
+	{ MODKEY,                       XK_grave,  zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
